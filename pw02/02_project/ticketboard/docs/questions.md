@@ -1,7 +1,7 @@
 # Fragen – Integration der Services (DL10)
 
-Name: <Nachname> <Vorname>
-Klasse: <Klasse>
+Name: Hofstetter Travis
+Klasse: M347
 
 ---
 
@@ -9,13 +9,17 @@ Klasse: <Klasse>
 
 Welche Services haben Sie in Ihrer `compose.yaml` definiert?
 
-Antwort:
+Antwort: api, db, adminer, frontend
 
 ---
 
 Welche Aufgabe hat jeder Service in Ihrem System?
 
 Antwort:
+- api: Stellt die REST-API bereit (FastAPI)
+- db: Speichert Daten persistent (PostgreSQL)
+- adminer: Ermöglicht Web-Zugriff auf die Datenbank
+- frontend: Serviert die Benutzeroberfläche (Nginx)
 
 ---
 
@@ -23,19 +27,19 @@ Antwort:
 
 Welchen Servicenamen verwendet die API, um die Datenbank zu erreichen?
 
-Antwort:
+Antwort: db
 
 ---
 
 Warum funktioniert `localhost` innerhalb eines Containers nicht für die Kommunikation mit anderen Services?
 
-Antwort:
+Antwort: localhost bezieht sich auf den eigenen Container, nicht auf andere Services im Netzwerk.
 
 ---
 
 Wie stellt Docker Compose sicher, dass sich Services gegenseitig finden können?
 
-Antwort:
+Antwort: Durch ein automatisch erstelltes Docker-Netzwerk, in dem Services über ihre Namen erreichbar sind.
 
 ---
 
@@ -43,9 +47,9 @@ Antwort:
 
 Über welche Ports sind folgende Services erreichbar?
 
-* API
-* Adminer
-* Frontend
+* API: 8000
+* Adminer: 8080
+* Frontend: 3000
 
 Antwort:
 
@@ -53,8 +57,8 @@ Antwort:
 
 Welcher Unterschied besteht zwischen:
 
-* Container-Port
-* Host-Port
+* Container-Port: Port innerhalb des Containers
+* Host-Port: Port auf dem Host-System, über den der Container-Port exposed wird
 
 Antwort:
 
@@ -64,19 +68,19 @@ Antwort:
 
 Was passiert mit den Daten, wenn ein Container ohne Volume gelöscht wird?
 
-Antwort:
+Antwort: Die Daten gehen verloren, da sie nur im Container-Dateisystem gespeichert waren.
 
 ---
 
 Wie haben Sie die Persistenz für die Datenbank umgesetzt?
 
-Antwort:
+Antwort: Durch Definition eines named Volumes "postgres_data" für den DB-Service.
 
 ---
 
 Warum ist ein Volume für die Datenbank notwendig?
 
-Antwort:
+Antwort: Um Daten über Container-Neustarts und -Löschungen hinaus zu erhalten.
 
 ---
 
@@ -84,19 +88,19 @@ Antwort:
 
 Welche Elemente haben Sie in Ihrer `compose.yaml` definiert?
 
-Antwort:
+Antwort: services (api, db, adminer, frontend), volumes (postgres_data)
 
 ---
 
 Welche Umgebungsvariablen sind für die Datenbank-Verbindung notwendig?
 
-Antwort:
+Antwort: POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_PORT
 
 ---
 
 Wofür wird `depends_on` verwendet?
 
-Antwort:
+Antwort: Um die Startreihenfolge der Services zu steuern (API startet nach DB)
 
 ---
 
